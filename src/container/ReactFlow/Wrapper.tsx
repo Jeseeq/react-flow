@@ -5,9 +5,9 @@ import store, { StoreModel } from '../../store';
 
 const Wrapper: FC = ({ children }) => {
   const easyPeasyStore = useStore<StoreModel>();
-  const isWrapepdWithReactFlowProvider = easyPeasyStore?.getState()?.reactFlowVersion;
+  const isWrappedWithReactFlowProvider = easyPeasyStore?.getState()?.reactFlowVersion;
 
-  if (isWrapepdWithReactFlowProvider) {
+  if (isWrappedWithReactFlowProvider) {
     // we need to wrap it with a fragment because t's not allowed for children to be a ReactNode
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/18051
     return <>{children}</>;

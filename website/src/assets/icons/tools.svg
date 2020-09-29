@@ -1,0 +1,11 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clipFrontend)">
+<path d="M128 128L7.62939e-06 128L-3.56072e-06 0L128 128Z" fill="#FFC299"/>
+<path d="M128 0L128 128L-7.62939e-06 128L128 0Z" fill="#FF6700"/>
+</g>
+<defs>
+<clipPath id="clipFrontend">
+<rect width="128" height="128" fill="white" transform="matrix(-1 0 0 1 128 0)"/>
+</clipPath>
+</defs>
+</svg>

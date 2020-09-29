@@ -119,6 +119,8 @@ const OverviewFlow = () => {
   const onElementsRemove = (elementsToRemove) => setElements((els) => removeElements(elementsToRemove, els));
   const onConnect = (params) => setElements((els) => addEdge(params, els));
 
+  console.log('render overview');
+
   return (
     <ReactFlow
       elements={elements}
@@ -137,6 +139,7 @@ const OverviewFlow = () => {
       connectionLineStyle={connectionLineStyle}
       snapToGrid={true}
       snapGrid={snapGrid}
+      key="overview"
     >
       <MiniMap
         nodeStrokeColor={(n) => {

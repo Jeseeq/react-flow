@@ -117,7 +117,7 @@ const Header = () => {
 };
 
 ReactDOM.render(
-  <Router forceRefresh={true}>
+  <Router forceRefresh={false}>
     <Header />
     <SourceDisplay />
     <Switch>

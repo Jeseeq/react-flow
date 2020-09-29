@@ -60,11 +60,8 @@ type InitD3 = {
 export interface StoreModel {
   width: number;
   height: number;
-  viewportBox: Computed<StoreModel, Rect>;
   transform: Transform;
   elements: Elements;
-  nodes: Computed<StoreModel, Node[]>;
-  edges: Computed<StoreModel, Edge[]>;
   selectedElements: Elements | null;
   selectedNodesBbox: Rect;
 
@@ -92,6 +89,9 @@ export interface StoreModel {
   elementsSelectable: boolean;
 
   reactFlowVersion: string;
+  viewportBox: Computed<StoreModel, Rect>;
+  nodes: Computed<StoreModel, Node[]>;
+  edges: Computed<StoreModel, Edge[]>;
 
   onConnect?: OnConnectFunc;
   onConnectStart?: OnConnectStartFunc;
@@ -153,11 +153,8 @@ export interface StoreModel {
 export const storeModel: StoreModel = {
   width: 0,
   height: 0,
-  viewportBox: computed((state) => ({ x: 0, y: 0, width: state.width, height: state.height })),
   transform: [0, 0, 1],
   elements: [],
-  nodes: computed((state) => state.elements.filter((el) => isNode(el)) as Node[]),
-  edges: computed((state) => state.elements.filter((el) => isEdge(el)) as Edge[]),
   selectedElements: null,
   selectedNodesBbox: { x: 0, y: 0, width: 0, height: 0 },
 
@@ -195,6 +192,9 @@ export const storeModel: StoreModel = {
   elementsSelectable: true,
 
   reactFlowVersion: typeof __REACT_FLOW_VERSION__ !== 'undefined' ? __REACT_FLOW_VERSION__ : '-',
+  viewportBox: computed((state) => ({ x: 0, y: 0, width: state.width, height: state.height })),
+  nodes: computed((state) => state.elements.filter((el) => isNode(el)) as Node[]),
+  edges: computed((state) => state.elements.filter((el) => isEdge(el)) as Edge[]),
 
   setOnConnect: action((state, onConnect) => {
     state.onConnect = onConnect;
