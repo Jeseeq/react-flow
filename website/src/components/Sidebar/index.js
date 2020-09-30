@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Link from 'gatsby-link';
 import styled from '@emotion/styled';
 
@@ -11,7 +11,7 @@ const Aside = styled.aside`
   border-right: 1px solid ${getThemeColor('silverLighten30')};
 `;
 
-const MenuItem = styled(Link)`
+const MenuLink = styled(Link)`
   display: block;
   padding: ${getThemeSpacePx(1)} ${getThemeSpacePx(2)};
   margin-left: ${(p) => (p.marginLeft ? `${p.marginLeft}px` : 0)};
@@ -22,25 +22,40 @@ const MenuItem = styled(Link)`
   }
 `;
 
-const Sidebar = ({ menu, isDocs = false }) => {
+const GroupLabel = styled.div`
+  padding: ${getThemeSpacePx(1)} ${getThemeSpacePx(2)};
+  color: ${getThemeColor('silverDarken60')};
+  margin-left: ${(p) => (p.marginLeft ? `${p.marginLeft}px` : 0)};
+`;
+
+const MenuItem = ({ title, slug, marginLeft }) => {
+  return (
+    <MenuLink to={slug} marginLeft={marginLeft} activeClassName="active">
+      {title}
+    </MenuLink>
+  );
+};
+
+const SideBarParts = ({ items, level }) =>
+  items.map((menuItem) => {
+    if (menuItem.title) {
+      return (
+        <MenuItem key={menuItem.slug} marginLeft={level * 16} {...menuItem} />
+      );
+    }
+
+    return (
+      <Fragment key={menuItem.group}>
+        <GroupLabel marginLeft={level * 16}>{menuItem.group}</GroupLabel>
+        <SideBarParts items={menuItem.items} level={level + 1} />
+      </Fragment>
+    );
+  });
+
+const Sidebar = ({ menu }) => {
   return (
     <Aside>
-      {menu.map((m) => {
-        const splittedSlug = m.slug.split('/');
-        const parts = splittedSlug.length >= 5 ? splittedSlug.length - 4 : 0;
-        const marginLeft = isDocs ? parts * 16 : 0;
-
-        return (
-          <MenuItem
-            key={m.slug}
-            to={m.slug}
-            marginLeft={marginLeft}
-            activeClassName="active"
-          >
-            {m.title}
-          </MenuItem>
-        );
-      })}
+      <SideBarParts items={menu} level={0} />
     </Aside>
   );
 };

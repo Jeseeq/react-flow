@@ -1,7 +1,5 @@
 ---
-id: getting-started
-title: Getting started
-slug: /getting-started
+title: Getting Started
 ---
 
 Before you can start to use React Flow you need to install `react-flow-renderer` from npm:

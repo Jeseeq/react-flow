@@ -1,5 +1,5 @@
 import React from 'react';
-// import ReactFlow from 'react-flow-renderer';
+import ReactFlow from 'react-flow-renderer';
 
 const elements = [
   { id: '1', data: { label: 'Node 1' }, position: { x: 250, y: 5 } },
@@ -10,6 +10,6 @@ const elements = [
 
 export default () => (
   <div style={{ height: 400, border: '1px solid #EAEDF1', borderRadius: 5 }}>
-    {/* <ReactFlow elements={elements} /> */} REACT FLOW
+    <ReactFlow elements={elements} />
   </div>
 );

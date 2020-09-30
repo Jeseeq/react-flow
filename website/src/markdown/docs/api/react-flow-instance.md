@@ -1,7 +1,5 @@
 ---
-id: react-flow-instance
-title: React Flow Instance
-sidebar_label: Instance
+title: Instance
 ---
 
 You can receive a `reactFlowInstance` by using the `onLoad` callback:

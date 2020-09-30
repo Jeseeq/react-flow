@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import ReactFlow, { isEdge, removeElements, addEdge, MiniMap, Controls } from 'react-flow-renderer';
 
 import ColorSelectorNode from './ColorSelectorNode';

@@ -2,6 +2,7 @@ import React from 'react';
 
 import ExamplePage from 'components/Page/Example';
 import Flow from 'example-flows/Validation';
+import { ReactFlowProvider } from 'react-flow-renderer';
 
 export const frontmatter = {
   title: 'Validation',
@@ -12,7 +13,9 @@ export const frontmatter = {
 export default () => {
   return (
     <ExamplePage title={frontmatter.title} slug={frontmatter.slug}>
-      <Flow />
+      <ReactFlowProvider>
+        <Flow />
+      </ReactFlowProvider>
     </ExamplePage>
   );
 };

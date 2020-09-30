@@ -1,5 +1,4 @@
 ---
-id: controls
 title: Controls
 ---
 

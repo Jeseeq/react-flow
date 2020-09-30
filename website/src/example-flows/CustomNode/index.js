@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-
 import ReactFlow, {
   isEdge,
   removeElements,
@@ -9,6 +8,8 @@ import ReactFlow, {
 } from 'react-flow-renderer';
 
 import ColorSelectorNode from './ColorSelectorNode';
+
+import './index.css';
 
 const onLoad = (reactFlowInstance) =>
   console.log('flow loaded:', reactFlowInstance);

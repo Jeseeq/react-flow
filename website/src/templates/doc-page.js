@@ -5,6 +5,42 @@ import DocPage from 'components/Page/Doc';
 import Mdx from './mdx-renderer/DocMdx';
 import { H1 } from 'components/Typo';
 
+const docsMenu = [
+  { title: 'Introduction' },
+  { title: 'Getting Started' },
+  {
+    group: 'API Reference',
+    items: [
+      { title: 'Prop Types' },
+      { title: 'Instance' },
+      { title: 'Nodes' },
+      { title: 'Edges' },
+      { title: 'Helper Functions' },
+      { title: 'Internal State and Actions' },
+      {
+        group: 'Components',
+        items: [
+          { title: 'Background' },
+          { title: 'Mini Map' },
+          { title: 'Controls' },
+          { title: 'Provider' },
+        ],
+      },
+    ],
+  },
+];
+
+function extendMenu(items, menuData) {
+  items.forEach((menuItem) => {
+    if (menuItem.group) {
+      return extendMenu(menuItem.items, menuData);
+    }
+
+    menuItem.slug =
+      menuData.find((m) => m.title === menuItem.title)?.slug || '/';
+  });
+}
+
 const DocPageTemplate = ({ data, pageContext }) => {
   const { content } = data;
   const { title } = content.frontmatter;
@@ -16,8 +52,10 @@ const DocPageTemplate = ({ data, pageContext }) => {
     robots: 'index, follow',
   };
 
+  extendMenu(docsMenu, pageContext.menu);
+
   return (
-    <DocPage metaTags={metaTags} menu={pageContext.menu}>
+    <DocPage metaTags={metaTags} menu={docsMenu}>
       <H1>{title}</H1>
       <Mdx content={content.body} />
     </DocPage>

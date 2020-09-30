@@ -1,5 +1,4 @@
 ---
-id: internal-state-actions
 title: Internal State and Actions
 ---
 

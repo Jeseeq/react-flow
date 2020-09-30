@@ -1,5 +1,4 @@
 ---
-id: provider
 title: Provider
 ---
 

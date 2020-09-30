@@ -1,5 +1,4 @@
 ---
-id: helper-functions
 title: Helper Functions
 ---
 

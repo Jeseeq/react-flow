@@ -1,5 +1,4 @@
 ---
-id: minimap
 title: Mini Map
 ---
 

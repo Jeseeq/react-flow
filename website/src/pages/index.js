@@ -10,6 +10,7 @@ import CenterContent from 'components/CenterContent';
 import SectionIntro from 'components/SectionIntro';
 import Button from 'components/Button';
 import CodeBlock from 'components/CodeBlock';
+import Showcases from 'components/Showcases';
 import { Paragraph, H1, H4 } from 'components/Typo';
 import { baseColors } from 'themes';
 import { getThemeColor } from 'utils/css-utils';
@@ -75,7 +76,8 @@ const DocsButton = styled(Button)`
   pointer-events: all;
 `;
 
-const Home = () => {
+const Home = (props) => {
+  console.log(props);
   return (
     <Page metaTags={metaTags}>
       <Box style={{ position: 'relative', height: 500 }}>
@@ -150,6 +152,7 @@ const BasicFlow = () => <ReactFlow elements={elements} />;`}
           text="React Flow has a fast growing community. Since the first release new projects popup. Ranging from Music Synthesizers and Study catalogs over to presentational business logic."
           color={baseColors.textLight}
         />
+        <Showcases />
       </ContentSection>
 
       <ContentSection>

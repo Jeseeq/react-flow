@@ -1,7 +1,5 @@
 ---
-id: react-flow-component-props
-title: React Flow Component Prop Types
-sidebar_label: Prop Types
+title: Prop Types
 ---
 
 ### Basic Props
