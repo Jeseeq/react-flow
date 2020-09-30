@@ -10,7 +10,9 @@ const Wrapper = styled(Flex)`
 `;
 
 const left =
-  window.innerWidth > 1000 ? Math.min(350, window.innerWidth * 0.3) / 2 : 0;
+  typeof window !== 'undefined' && window.innerWidth > 1000
+    ? Math.min(350, window.innerWidth * 0.3) / 2
+    : 0;
 
 const DocWrapper = styled(Box)`
   max-width: 620px;

@@ -43,8 +43,9 @@ const HeadlineWrapper = styled(Box)`
   max-width: 400px;
 `;
 
-const offsetLeft =
-  window.innerWidth < 1200 ? 0 : (window.innerWidth - 1200) / 2;
+const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+
+const offsetLeft = windowWidth < 1200 ? 0 : (windowWidth - 1200) / 2;
 
 const initialElements = [
   {
@@ -77,8 +78,7 @@ const DocsButton = styled(Button)`
   pointer-events: all;
 `;
 
-const Home = (props) => {
-  console.log(props);
+const Home = () => {
   return (
     <Page metaTags={metaTags}>
       <Box style={{ position: 'relative', height: 500 }}>
