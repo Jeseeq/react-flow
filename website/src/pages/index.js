@@ -11,6 +11,7 @@ import SectionIntro from 'components/SectionIntro';
 import Button from 'components/Button';
 import CodeBlock from 'components/CodeBlock';
 import Showcases from 'components/Showcases';
+import TeaserFlows from 'components/TeaserFlows';
 import { Paragraph, H1, H4 } from 'components/Typo';
 import { baseColors } from 'themes';
 import { getThemeColor } from 'utils/css-utils';
@@ -144,7 +145,9 @@ const BasicFlow = () => <ReactFlow elements={elements} />;`}
         </CenterContent>
       </ContentSection>
 
-      <ContentSection centered>Examples</ContentSection>
+      <ContentSection centered>
+        <TeaserFlows />
+      </ContentSection>
 
       <ContentSection bg="violetLighten5">
         <SectionIntro
