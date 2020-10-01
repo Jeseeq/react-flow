@@ -11,6 +11,7 @@ import SectionIntro from 'components/SectionIntro';
 import Button from 'components/Button';
 import CodeBlock from 'components/CodeBlock';
 import Showcases from 'components/Showcases';
+import Icon from 'components/Icon';
 import TeaserFlows from 'components/TeaserFlows';
 import { Paragraph, H1, H4 } from 'components/Typo';
 import { baseColors } from 'themes';
@@ -74,8 +75,41 @@ const initialElements = [
 ];
 
 const DocsButton = styled(Button)`
-  margin-right: 16px;
+  margin-right: 24px;
   pointer-events: all;
+  background: ${getThemeColor('red')};
+`;
+
+const ExampleButton = styled(Link)`
+  pointer-events: all;
+  display: flex;
+  align-items: center;
+
+  &&& {
+    color: ${getThemeColor('text')};
+
+    &:hover {
+      color: ${getThemeColor('red')};
+
+      polyline,
+      line {
+        stroke: ${getThemeColor('red')};
+      }
+    }
+  }
+`;
+
+const ContactButton = styled(Button)`
+  background: ${getThemeColor('red')};
+  margin-right: 16px;
+`;
+
+const WorkButton = styled(Button)`
+  background: ${getThemeColor('violet')};
+
+  &:hover {
+    background: ${getThemeColor('red')};
+  }
 `;
 
 const Home = () => {
@@ -95,17 +129,27 @@ const Home = () => {
                 a highliy customizable library for building node based editors
                 and diagrams
               </SectionSubtitle>
-              <Flex mt={3}>
-                <DocsButton as={Link} to="/docs">
+              <Flex mt={3} alignItems="center">
+                <DocsButton
+                  as={Link}
+                  to="/docs"
+                  icon="code"
+                  colorizeStroke
+                  color="textInverted"
+                  type="big"
+                >
                   Documentation
                 </DocsButton>
-                <Button
-                  as={Link}
-                  to="/examples"
-                  style={{ pointerEvents: 'all' }}
-                >
+                <ExampleButton to="/examples">
                   Examples
-                </Button>
+                  <Icon
+                    width="24px"
+                    name="arrow_right"
+                    colorizeStroke
+                    strokeColor="text"
+                    ml={1}
+                  />
+                </ExampleButton>
               </Flex>
             </HeadlineWrapper>
           </CenterContent>
@@ -165,17 +209,24 @@ const BasicFlow = () => <ReactFlow elements={elements} />;`}
         />
 
         <Flex justifyContent="center">
-          <Button
+          <ContactButton
             as="a"
             href="https://webkid.io/contact"
             icon="mail"
-            style={{ marginRight: 16 }}
+            type="big"
+            color="textInverted"
           >
             Contact us
-          </Button>
-          <Button as="a" href="https://webkid.io/portfolio" icon="mail">
+          </ContactButton>
+          <WorkButton
+            as="a"
+            href="https://webkid.io/portfolio"
+            icon="eye"
+            type="big"
+            color="textInverted"
+          >
             View other work
-          </Button>
+          </WorkButton>
         </Flex>
       </ContentSection>
     </Page>

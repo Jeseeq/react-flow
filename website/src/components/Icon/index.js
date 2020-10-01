@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
-import { Box } from 'reflexbox';
+import { Flex } from 'reflexbox';
 import { isOldIE } from 'utils/browser-utils';
 
 import Mail from 'assets/icons/mail.svg';
 import Github from 'assets/icons/github_circle.svg';
 import ArrowRight from 'assets/icons/arrow_right.svg';
 import Menu from 'assets/icons/menu.svg';
+import Code from 'assets/icons/code.svg';
 
-const IconWrapper = styled(Box)`
+const IconWrapper = styled(Flex)`
+  justify-content: center;
+  align-items: center;
+
   svg {
     max-width: 100%;
     height: auto;
@@ -46,6 +50,7 @@ const preLoaded = {
   arrow_right: ArrowRight,
   menu: Menu,
   github_circle: Github,
+  code: Code,
 };
 
 const getPreLoadedIcon = (name) =>
@@ -89,6 +94,7 @@ export default ({
       className="icon"
       colorizeStroke={colorizeStroke}
       strokeColor={strokeColor}
+      height={restProps.width || 'auto'}
       {...restProps}
     >
       <IconComponent />

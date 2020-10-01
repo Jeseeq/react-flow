@@ -7,7 +7,7 @@ import WbkdLogoBlack from 'assets/images/logo.svg';
 
 const Image = styled.img`
   display: block;
-  width: 100px;
+  width: 75px;
 `;
 
 const getLogoSrc = (type, inverted, theme) => {
@@ -22,9 +22,9 @@ const getLogoSrc = (type, inverted, theme) => {
   return theme.name === 'light' ? WbkdLogoBlack : WbkdLogoWhite;
 };
 
-export default ({ type = null, inverted = false }) => {
+export default ({ type = null, inverted = false, style = {} }) => {
   const theme = useTheme();
   const logoSrc = getLogoSrc(type, inverted, theme);
 
-  return <Image src={logoSrc} alt="webkid logo" />;
+  return <Image src={logoSrc} alt="webkid logo" style={style} />;
 };

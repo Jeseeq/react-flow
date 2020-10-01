@@ -4,19 +4,19 @@ import { rgba } from 'utils/css-utils';
 import { Flex } from 'reflexbox';
 
 import Icon from 'components/Icon';
-import { getThemeSpacePx, getThemeColor } from 'utils/css-utils';
+import { getThemeColor } from 'utils/css-utils';
 
 const Button = styled.button`
   color: ${(p) => p.theme.colors[p.color || 'button']};
   border: ${(p) =>
     p.type === 'ghost'
-      ? 'none'
+      ? '1px solid rgba(0,0,0,0)'
       : `1px solid ${p.theme.colors[p.color || 'button']}`};
   background: ${(p) =>
     p.active
       ? rgba(p.color ? p.theme.colors[p.color] : p.theme.colors.button, 0.2)
       : 'none'};
-  padding: ${getThemeSpacePx(2)} ${getThemeSpacePx(3)};
+  padding: ${(p) => (p.type === 'big' ? '12px 20px' : '8px 16px')};
   border-radius: 25px;
   outline: none;
   cursor: pointer;
@@ -24,6 +24,10 @@ const Button = styled.button`
   letter-spacing: 0.5px;
   line-height: 1;
   transition: 0.075s all ease-in-out;
+
+  svg {
+    width: 100%;
+  }
 
   &:visited,
   &:focus,
@@ -45,6 +49,12 @@ const Button = styled.button`
         stroke: ${getThemeColor('background')};
       }
     }
+
+    svg {
+      .nostroke {
+        stroke: none;
+      }
+    }
   }
 
   &:active {
@@ -57,7 +67,7 @@ export default ({
   color = 'button',
   children,
   type = 'normal',
-  iconWidth = '32px',
+  iconWidth = '20px',
   ...props
 }) => (
   <Button color={color} type={type} {...props}>

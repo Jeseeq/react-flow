@@ -15,9 +15,9 @@ const Header = ({ hasBorder = false }) => {
   return (
     <Wrapper hasBorder={hasBorder}>
       <Flex p={4}>
-        <Flex>
+        <Flex alignItems="center">
           A project by
-          <a href="https://webkid.io">
+          <a href="https://webkid.io" style={{ marginLeft: 8 }}>
             <Logo />
           </a>
         </Flex>
@@ -28,7 +28,8 @@ const Header = ({ hasBorder = false }) => {
             name="github_circle"
             colorizeStroke
             strokeColor="text"
-            style={{ marginRight: 8, display: 'block' }}
+            style={{ marginRight: 8 }}
+            width="24px"
           />
           <Icon
             as="a"
@@ -36,6 +37,7 @@ const Header = ({ hasBorder = false }) => {
             name="twitter_circle"
             colorizeStroke
             strokeColor="text"
+            width="24px"
           />
         </Flex>
       </Flex>

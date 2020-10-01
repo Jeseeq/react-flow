@@ -4,9 +4,9 @@ import styled from '@emotion/styled';
 import { Flex, Box } from 'reflexbox';
 
 import Icon from 'components/Icon';
-import Logo from 'components/Logo';
 import Button from 'components/Button';
 import { getThemeColor, getThemeSpacePx, device, px } from 'utils/css-utils';
+import ReactFlowLogo from 'assets/images/react-flow-logo.svg';
 
 const Centered = styled(Flex)`
   justify-content: space-between;
@@ -117,6 +117,12 @@ const GithubButton = styled.a`
     font-size: 16px;
     display: inline-block;
     background: ${(p) => p.theme.colors.textDark};
+
+    &&& {
+      &:hover {
+        background: ${getThemeColor('red')};
+      }
+    }
   }
 `;
 
@@ -136,6 +142,27 @@ const NavButton = styled.div`
   @media ${device.tablet} {
     display: none;
   }
+`;
+
+const Image = styled.img`
+  display: block;
+  width: 40px;
+  margin-right: 12px;
+`;
+
+const LogoTitle = styled(Box)`
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  color: ${getThemeColor('violet')};
+`;
+
+const LogoSubtitle = styled(Box)`
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: ${getThemeColor('silverDarken30')};
+  line-height: 1.2;
 `;
 
 const Header = () => {
@@ -166,9 +193,13 @@ const Header = () => {
   return (
     <Wrapper>
       <Centered>
-        <Link to="/">
-          <Logo />
-        </Link>
+        <Flex as={Link} to="/">
+          <Image src={ReactFlowLogo} alt="React Flow Logo" />
+          <Box>
+            <LogoTitle>React Flow</LogoTitle>
+            <LogoSubtitle>an open source webkid.io library</LogoSubtitle>
+          </Box>
+        </Flex>
         <NavButton onClick={toggleMenu}>
           <Icon name="menu" strokeColor="text" colorizeStroke />
         </NavButton>
