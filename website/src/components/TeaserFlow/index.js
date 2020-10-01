@@ -2,7 +2,11 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Flex, Box } from 'reflexbox';
 import Link from 'gatsby-link';
-import ReactFlow, { ReactFlowProvider, Background } from 'react-flow-renderer';
+import ReactFlow, {
+  ReactFlowProvider,
+  Background,
+  Controls,
+} from 'react-flow-renderer';
 
 import { H2, Text } from 'components/Typo';
 import Icon from 'components/Icon';
@@ -34,7 +38,13 @@ const Description = ({ title, description }) => (
   </Box>
 );
 
-export default ({ title, description, textPosition = 'left', flowProps }) => {
+export default ({
+  title,
+  description,
+  textPosition = 'left',
+  flowProps,
+  withControls = false,
+}) => {
   return (
     <Wrapper mb={[6, 6, 7]}>
       {textPosition === 'left' && (
@@ -44,6 +54,7 @@ export default ({ title, description, textPosition = 'left', flowProps }) => {
         <ReactFlowProvider>
           <ReactFlow {...flowProps} zoomOnScroll={false}>
             <Background color="#555" gap={15} />
+            {withControls && <Controls />}
           </ReactFlow>
         </ReactFlowProvider>
       </ReactFlowWrapper>

@@ -92,8 +92,8 @@ const Home = () => {
             <HeadlineWrapper>
               <H1>Wire your ideas together with React Flow</H1>
               <SectionSubtitle>
-                a highliy customizable library for building node based editors
-                and diagrams
+                Highly customizable React.js library for building node-based
+                editors and diagrams.
               </SectionSubtitle>
               <Flex mt={3} alignItems="center">
                 <DocsButton
@@ -126,18 +126,31 @@ const Home = () => {
         <CenterContent>
           <SectionIntro
             title="Getting Started"
-            text="React Flow is a library for building node-based editors."
+            text="With React Flow you can build node-based applications. From complex interactive editors to simple static diagrams."
             color={baseColors.textLight}
           />
           <Paragraph mb={3} color={baseColors.textLight}>
-            React Flow is published on npm. You can install it via:
+            React Flow is published on{' '}
+            <a
+              href="https://www.npmjs.com/package/react-flow-renderer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              npm
+            </a>
+            . You can install it via:
           </Paragraph>
           <CodeBlock
             code={`npm install --save react-flow-renderer`}
             language="bash"
           />
           <Paragraph my={3} color={baseColors.textLight}>
-            This is a basic example of how you can create a flow:
+            A flow consists of nodes and edges (or just nodes). Together we call
+            them elements. You can pass a set of elements as a prop to the
+            ReactFlow component. Hereby all elements need unique ids. A node
+            needs a position and a label and an edge needs a source (node id)
+            and a target (node id). This is the most basic set up you need to
+            get started. A simple flow could look like this:
           </Paragraph>
           <CodeBlock
             code={`import React from 'react';

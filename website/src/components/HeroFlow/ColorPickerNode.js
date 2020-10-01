@@ -46,12 +46,11 @@ const ColorPickerNodeWrapper = styled.div`
 
 const ColorPickerNode = memo(({ data, id }) => {
   const onChange = useCallback((event) => data.onChange(event, id), [data, id]);
+  const colorName = `${data.color[0].toUpperCase()}${data.color.substr(1)}`;
 
   return (
     <ColorPickerNodeWrapper color={data.color} value={data.value}>
-      <div>
-        <strong>{data.color}</strong> amount
-      </div>
+      <div>{colorName} amount</div>
       <input
         type="range"
         min="0"

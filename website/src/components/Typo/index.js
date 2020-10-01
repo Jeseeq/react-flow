@@ -94,4 +94,8 @@ export const Paragraph = styled(Box)`
   margin-right: auto;
   letter-spacing: 0.5px;
   line-height: 1.5;
+
+  code {
+    color: ${(p) => p.theme.colors.violet};
+  }
 `;

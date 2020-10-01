@@ -4,14 +4,66 @@ import TeaserFlow from 'components/TeaserFlow';
 
 const elementsA = [
   {
-    id: '123',
+    id: '1',
+    type: 'input',
     position: {
-      x: 0,
-      y: 0,
+      x: 200,
+      y: 5,
     },
     data: {
-      label: 'Test',
+      label: 'Input',
     },
+  },
+  {
+    id: '2',
+    position: {
+      x: 0,
+      y: 150,
+    },
+    data: {
+      label: 'Default',
+    },
+  },
+  {
+    id: '3',
+    position: {
+      x: 400,
+      y: 150,
+    },
+    data: {
+      label: 'Default',
+    },
+  },
+  {
+    id: '4',
+    type: 'output',
+    position: {
+      x: 200,
+      y: 300,
+    },
+    data: {
+      label: 'Output',
+    },
+  },
+  {
+    id: 'e1',
+    source: '1',
+    target: '2',
+  },
+  {
+    id: 'e2',
+    source: '1',
+    target: '3',
+  },
+  {
+    id: 'e3',
+    source: '2',
+    target: '4',
+  },
+  {
+    id: 'e4',
+    source: '3',
+    target: '4',
   },
 ];
 
@@ -49,7 +101,10 @@ export default () => {
         description="Seamless zooming & panning behaviour and single and multi-selections of elements."
         flowProps={{
           elements: elementsA,
+          onLoad: (rf) => rf.fitView(),
         }}
+        withControls
+        fitView
       />
       <TeaserFlow
         title="Customizable"
