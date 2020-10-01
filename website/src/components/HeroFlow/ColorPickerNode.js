@@ -10,6 +10,8 @@ const ColorPickerNodeWrapper = styled.div`
   border: 1px solid ${getThemeColor('violet')};
   font-size: 12px;
   border-radius: 4px;
+  box-shadow: ${(p) =>
+    p.selected ? `0 0 0 0.25px ${p.theme.colors.violet}` : 'none'};
 
   .react-flow__handle {
     background: ${(p) => p.color};
@@ -44,12 +46,16 @@ const ColorPickerNodeWrapper = styled.div`
   }
 `;
 
-const ColorPickerNode = memo(({ data, id }) => {
+const ColorPickerNode = memo(({ data, id, selected }) => {
   const onChange = useCallback((event) => data.onChange(event, id), [data, id]);
   const colorName = `${data.color[0].toUpperCase()}${data.color.substr(1)}`;
 
   return (
-    <ColorPickerNodeWrapper color={data.color} value={data.value}>
+    <ColorPickerNodeWrapper
+      color={data.color}
+      value={data.value}
+      selected={selected}
+    >
       <div>{colorName} amount</div>
       <input
         type="range"

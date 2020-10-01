@@ -7,7 +7,7 @@ import CodeBlock from 'components/Mdx/CodeBlock';
 import { H4, AttributionText } from 'components/Typo';
 
 const Wrapper = styled(Box)`
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
 
   h4 {
@@ -16,6 +16,7 @@ const Wrapper = styled(Box)`
 
   pre {
     margin: 0;
+    font-size: 14px;
   }
 
   code {

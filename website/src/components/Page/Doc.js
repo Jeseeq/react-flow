@@ -18,7 +18,6 @@ const DocWrapper = styled(Box)`
   max-width: 620px;
   margin: 0 auto;
   position: relative;
-  left: -${left}px;
 `;
 
 export default ({ children, menu = [], ...rest }) => (

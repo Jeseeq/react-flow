@@ -6,7 +6,7 @@ import { getThemeColor, getThemeSpacePx } from 'utils/css-utils';
 
 const Aside = styled.aside`
   width: 30%;
-  max-width: 350px;
+  max-width: 300px;
   padding: 16px;
   border-right: 1px solid ${getThemeColor('silverLighten30')};
 `;
