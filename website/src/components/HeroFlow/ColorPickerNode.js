@@ -1,0 +1,68 @@
+import React, { memo, useCallback } from 'react';
+import styled from '@emotion/styled';
+import { Handle } from 'react-flow-renderer';
+
+import { getThemeColor } from 'utils/css-utils';
+
+const ColorPickerNodeWrapper = styled.div`
+  padding: 10px;
+  background: white;
+  border: 1px solid ${getThemeColor('violet')};
+  font-size: 12px;
+  border-radius: 4px;
+
+  .react-flow__handle {
+    background: ${(p) => p.color};
+  }
+
+  input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: ${getThemeColor('silver')};
+    outline: none;
+    border-radius: 2px;
+  }
+
+  input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: ${(p) => p.color};
+    cursor: pointer;
+    border-radius: 100%;
+  }
+
+  input::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    background: ${(p) => p.color};
+    cursor: pointer;
+    border-radius: 100%;
+  }
+`;
+
+const ColorPickerNode = memo(({ data, id }) => {
+  const onChange = useCallback((event) => data.onChange(event, id), [data, id]);
+
+  return (
+    <ColorPickerNodeWrapper color={data.color} value={data.value}>
+      <div>
+        <strong>{data.color}</strong> amount
+      </div>
+      <input
+        type="range"
+        min="0"
+        max="255"
+        value={data.value}
+        onChange={onChange}
+        className="nodrag"
+      />
+      <Handle type="source" position="right" />
+    </ColorPickerNodeWrapper>
+  );
+});
+
+export default ColorPickerNode;
