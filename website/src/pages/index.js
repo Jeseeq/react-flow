@@ -12,7 +12,9 @@ import CodeBlock from 'components/CodeBlock';
 import Showcases from 'components/Showcases';
 import Icon from 'components/Icon';
 import HeroFlow from 'components/HeroFlow';
-import TeaserFlows from 'components/TeaserFlows';
+import FlowA from 'components/TeaserFlow/A';
+import FlowB from 'components/TeaserFlow/B';
+import FlowC from 'components/TeaserFlow/C';
 import { Paragraph, H1, H4 } from 'components/Typo';
 import { baseColors } from 'themes';
 import { getThemeColor } from 'utils/css-utils';
@@ -169,7 +171,9 @@ const BasicFlow = () => <ReactFlow elements={elements} />;`}
       </ContentSection>
 
       <ContentSection centered>
-        <TeaserFlows />
+        <FlowA />
+        <FlowB />
+        <FlowC />
       </ContentSection>
 
       <ContentSection bg="violetLighten5">

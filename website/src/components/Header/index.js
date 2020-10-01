@@ -197,7 +197,7 @@ const Header = () => {
           <Image src={ReactFlowLogo} alt="React Flow Logo" />
           <Box>
             <LogoTitle>React Flow</LogoTitle>
-            <LogoSubtitle>an open source webkid.io library</LogoSubtitle>
+            <LogoSubtitle>an open source library by webkid.io</LogoSubtitle>
           </Box>
         </Flex>
         <NavButton onClick={toggleMenu}>

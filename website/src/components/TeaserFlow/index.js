@@ -6,10 +6,12 @@ import ReactFlow, {
   ReactFlowProvider,
   Background,
   Controls,
+  MiniMap,
 } from 'react-flow-renderer';
 
 import { H2, Text } from 'components/Typo';
 import Icon from 'components/Icon';
+import { baseColors } from 'themes';
 
 const Wrapper = styled(Flex)`
   justify-content: space-between;
@@ -18,7 +20,13 @@ const Wrapper = styled(Flex)`
 `;
 
 const ReactFlowWrapper = styled(Box)`
-  height: 350px;
+  height: 400px;
+  background: ${(p) => (p.isDark ? baseColors.violet : 'white')};
+  border-radius: 5px;
+
+  .react-flow__controls {
+    opacity: ${(p) => (p.isDark ? 0.5 : 1)};
+  }
 `;
 
 const DocsLink = styled(Link)`
@@ -44,19 +52,34 @@ export default ({
   textPosition = 'left',
   flowProps,
   withControls = false,
+  withMinimap = false,
+  isDark = false,
+  linesBg = false,
+  children,
 }) => {
+  const bgColor = isDark ? baseColors.violetLighten60 : baseColors.violet;
+
   return (
     <Wrapper mb={[6, 6, 7]}>
       {textPosition === 'left' && (
         <Description title={title} description={description} />
       )}
-      <ReactFlowWrapper width={[1, 1, 0.6]}>
-        <ReactFlowProvider>
-          <ReactFlow {...flowProps} zoomOnScroll={false}>
-            <Background color="#555" gap={15} />
-            {withControls && <Controls />}
-          </ReactFlow>
-        </ReactFlowProvider>
+      <ReactFlowWrapper width={[1, 1, 0.6]} isDark={isDark}>
+        {children ? (
+          children
+        ) : (
+          <ReactFlowProvider>
+            <ReactFlow {...flowProps} zoomOnScroll={false}>
+              <Background
+                color={linesBg ? '#eee' : bgColor}
+                gap={15}
+                variant={linesBg ? 'lines' : 'dots'}
+              />
+              {withControls && <Controls />}
+              {withMinimap && <MiniMap />}
+            </ReactFlow>
+          </ReactFlowProvider>
+        )}
       </ReactFlowWrapper>
       {textPosition !== 'left' && (
         <Description title={title} description={description} />
