@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Flex, Box } from 'reflexbox';
 import { Link } from 'gatsby';
-import ReactFlow, { ReactFlowProvider, Background } from 'react-flow-renderer';
 
 import Page from 'components/Page';
 import ContentSection from 'components/ContentSection';
@@ -12,6 +11,7 @@ import Button from 'components/Button';
 import CodeBlock from 'components/CodeBlock';
 import Showcases from 'components/Showcases';
 import Icon from 'components/Icon';
+import HeroFlow from 'components/HeroFlow';
 import TeaserFlows from 'components/TeaserFlows';
 import { Paragraph, H1, H4 } from 'components/Typo';
 import { baseColors } from 'themes';
@@ -20,7 +20,7 @@ import { getThemeColor } from 'utils/css-utils';
 const metaTags = {
   title: 'React Flow',
   description:
-    'webkid is a Berlin based data visualization agency specialized in data driven applications and interactive maps.',
+    'Highly customizable React.js library for building interactive node-based editors, flow charts and diagrams.',
   siteUrl: 'https://reactflow.dev',
   robots: 'index,follow',
 };
@@ -43,36 +43,6 @@ const HeadlineAbsolute = styled(Box)`
 const HeadlineWrapper = styled(Box)`
   max-width: 400px;
 `;
-
-const windowWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
-
-const offsetLeft = windowWidth < 1200 ? 0 : (windowWidth - 1200) / 2;
-
-const initialElements = [
-  {
-    id: 'home-1',
-    type: 'input',
-    data: { label: 'Node 1' },
-    position: { x: offsetLeft + 450, y: 5 },
-  },
-  {
-    id: 'home-2',
-    data: { label: 'Node 2' },
-    position: { x: offsetLeft + 450, y: 100 },
-  },
-  {
-    id: 'home-3',
-    data: { label: 'Node 3' },
-    position: { x: offsetLeft + 650, y: 100 },
-  },
-  {
-    id: 'home-4',
-    data: { label: 'Node 4' },
-    position: { x: offsetLeft + 450, y: 200 },
-  },
-  { id: 'home-e1-2', source: 'home-1', target: 'home-2', animated: true },
-  { id: 'home-e1-3', source: 'home-1', target: 'home-3' },
-];
 
 const DocsButton = styled(Button)`
   margin-right: 24px;
@@ -116,11 +86,7 @@ const Home = () => {
   return (
     <Page metaTags={metaTags}>
       <Box style={{ position: 'relative', height: 500 }}>
-        <ReactFlowProvider>
-          <ReactFlow elements={initialElements} zoomOnScroll={false}>
-            <Background />
-          </ReactFlow>
-        </ReactFlowProvider>
+        <HeroFlow />
         <HeadlineAbsolute>
           <CenterContent>
             <HeadlineWrapper>

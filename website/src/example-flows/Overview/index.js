@@ -66,9 +66,9 @@ const initialElements = [
     },
     position: { x: 400, y: 100 },
     style: {
-      background: '#eee',
-      color: '#222',
-      border: '1px solid #bbb',
+      background: '#D6D5E6',
+      color: '#333',
+      border: '1px solid #222138',
       width: 180,
     },
   },

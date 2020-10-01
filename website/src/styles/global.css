@@ -40,3 +40,7 @@
   position: fixed;
   width: 100%;
 }
+
+.react-flow {
+  font-family: 'jetbrains-mono';
+}
